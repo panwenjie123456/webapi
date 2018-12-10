@@ -1,0 +1,32 @@
+{
+  "name": "bookmanagement",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "NODE_ENV=test mocha test/routes/bm-test.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jsonwebtoken": "^8.3.0",
+    "koa": "^2.5.3",
+    "koa-jwt": "^3.5.1",
+    "mongo": "^0.1.0",
+    "mongo-uri": "^0.1.2",
+    "mongodb-uri": "^0.9.7",
+    "mongoose": "^5.3.6",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "chai-things": "^0.2.0",
+    "mocha": "^3.4.2"
+  }
+}
