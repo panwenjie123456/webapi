@@ -24,6 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+var cors = require('cors');
+app.use(cors());
+
 
 
 // book1
@@ -47,6 +50,9 @@ app.put('/booktype/:id/vote', booktypemanage.incrementUpvotes);
 app.delete('/booktype/:id', booktypemanage.deleteBooktype);
 //booktype2
 app.get('/booktype/:book_name', booktypemanage.findByName);
+
+app.delete('/booktype', booktypemanage.deleteAll);
+app.put('/booktype/:id', booktypemanage.update);
 //publisher1
 app.get('/publisher', publishermanage.findAll);
 app.get('/publisher/votes', publishermanage.findTotalVotes);
@@ -55,6 +61,8 @@ app.post('/publisher',publishermanage.addPublisher);
 app.put('/publisher/:id/vote', publishermanage.incrementUpvotes);
 app.delete('/publisher/:id', publishermanage.deletePublisher);
 
+app.delete('/publisher', publishermanage.deleteAll);
+app.put('/publisher/:id', publishermanage.update);
 
 var setupRouter = require('./routes/setup')
 app.use('/setup', setupRouter);

@@ -105,6 +105,32 @@ router.deletePublisher = (req, res) => {
     });
 }
 
+router.deleteAll = (req, res) => {
+
+    Publisher.remove({}, function(err) {
+        if (err)
+            res.json({ message: 'Publisher NOT DELETED!', errmsg : err } );
+        else
+            res.json({ message: 'Publisher Successfully Deleted!'});
+    });
+}
+
+router.update = (req, res) => {
+
+    Publisher.findById(req.params.id, function(err,Publisher) {
+        if (err)
+            res.send(err);
+        publisher.publisher_name = req.body.publisher_name;
+        publisher.location = req.body.location;
+        publisher.year = req.body.year;
+        Publisher.save(function(err){
+            if(err)
+                res.send(err);
+            res.json({message:'Publisher updated!'});
+        })
+    });
+}
+
 router.findTotalVotes = (req, res) => {
 
     Publisher.find(function(err, publisher) {
